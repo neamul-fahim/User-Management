@@ -158,9 +158,9 @@ class RegistrationProfileView(APIView):
             serializer = RegistrationProfileSerializer(user_profile)
             serialized_data = serializer.data
 
-            return Response(serialized_data, status=status.HTTP_200_OK)
+            return Response({'exists': True, 'response': serialized_data}, status=status.HTTP_200_OK)
         except RegistrationProfile.DoesNotExist:
-            return Response('Profile does not exist', status=status.HTTP_404_NOT_FOUND)
+            return Response({'exists': False, 'response': 'registration in not complete'}, status=status.HTTP_404_NOT_FOUND)
 
 
 class JobProfileView(APIView):
