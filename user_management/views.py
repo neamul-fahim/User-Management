@@ -39,20 +39,21 @@ class UserAccountView(APIView):
         try:
             instance = OtpVerification.objects.get(
                 email=raw_user_data['email'])
-            serializer = OtpVerificationSerializer(data=raw_user_data)
-            serializer.is_valid(raise_exception=True)
-            instance = CustomUser.objects.model(
-                email=instance.email,
-                password=instance.password,
-                is_client=instance.is_client,
-            )
-            instance.save()
-            message = 'You have signed up to ipsita'
-            send_email(instance.email, message)
-            return Response({"message": "Signed up"}, status=status.HTTP_200_OK)
+            if instance.otp == raw_user_data['otp']:
+                instance = CustomUser.objects.model(
+                    email=instance.email,
+                    password=instance.password,
+                    is_client=instance.is_client,
+                )
+                instance.save()
+                message = 'You have signed up to ipsita'
+                send_email(instance.email, message)
+                return Response({"message": "Signed up"}, status=status.HTTP_200_OK)
+            else:
+                return Response("Otp didn't match", status=status.HTTP_400_BAD_REQUEST)
 
         except OtpVerification.DoesNotExist:
-            return Response("User doesn't exist", status=status.HTTP_401_UNAUTHORIZED)
+            return Response("Otp verification is not complete", status=status.HTTP_401_UNAUTHORIZED)
 
     def get(self, request):  # token
         """get the user by token"""
