@@ -140,11 +140,11 @@ class RegistrationAndJobProfileView(APIView):
 
 
 class RegistrationProfileView(APIView):
-    def get(self, request):
+    def post(self, request):
         token = get_token_from_request(request)
 
         if token is None:
-            return Response('Invalid token', status=status.HTTP_401_UNAUTHORIZED)
+            return Response('No token', status=status.HTTP_401_UNAUTHORIZED)
         try:
             user = Token.objects.get(key=token).user
             print(f"---------------user 1---------------{user}")
@@ -160,8 +160,8 @@ class RegistrationProfileView(APIView):
             serialized_data = serializer.data
 
             return Response({'exists': True, 'response': serialized_data}, status=status.HTTP_200_OK)
-        except RegistrationProfile.DoesNotExist:
-            return Response({'exists': False, 'response': 'registration in not complete'}, status=status.HTTP_404_NOT_FOUND)
+        except:
+            return Response({'exists': False, 'response': 'registration in not complete'}, status=status.HTTP_200_OK)
 
 
 class JobProfileView(APIView):

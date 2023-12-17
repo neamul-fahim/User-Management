@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-b2ce(&e53&ou#m(8zaj&-fu84a5u_mez1=dt#duoz1_efs%g3h
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Application definition
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'user_management',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'NRB_api_backend.urls'
