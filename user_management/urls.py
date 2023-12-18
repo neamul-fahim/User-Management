@@ -15,4 +15,6 @@ urlpatterns = [
          name='registration'),
     path('jobs/', views.JobProfileView.as_view(),
          name='jobs'),
+    path('profilepic_upload/', views.ProfilePicUploadView.as_view(),
+         name='profilepic_upload'),
 ]

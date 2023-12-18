@@ -187,3 +187,27 @@ class JobProfileView(APIView):
             return Response(serialized_data, status=status.HTTP_200_OK)
         except RegistrationProfile.DoesNotExist:
             return Response('Profile does not exist', status=status.HTTP_404_NOT_FOUND)
+
+
+class ProfilePicUploadView(APIView):
+    def patch(self, request):
+        token = get_token_from_request(request)
+
+        if token is None:
+            return Response('Invalid token', status=status.HTTP_401_UNAUTHORIZED)
+        try:
+            user = Token.objects.get(key=token).user
+            print(f"---------------user 1---------------{user}")
+        except Token.DoesNotExist:
+            return Response('Invalid Token', status=status.HTTP_401_UNAUTHORIZED)
+        print(f'-------------token---------- {user.pk}')
+
+        try:
+            instance = RegistrationProfile.objects.get(user=user)
+            serializer = RegistrationProfileSerializer(
+                instance=instance, data=request.data, partial=True)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response({"response": "Image uploaded"}, status=status.HTTP_200_OK)
+        except:
+            return Response({"reaponse": "Please complete registration"}, status=status.HTTP_400_BAD_REQUEST)

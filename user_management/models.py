@@ -96,15 +96,20 @@ class RegistrationProfile(models.Model):
     user = models.OneToOneField(
         CustomUser, on_delete=models.CASCADE, primary_key=True, related_name='profile')
     # Personal Information
+    profile_pic = models.ImageField(
+        upload_to="profile_pics/", blank=True, null=True)
     full_name = models.CharField(max_length=255, blank=False, null=False)
     sex = models.CharField(max_length=10, blank=False, null=False)
     country = models.CharField(max_length=100, blank=False, null=False)
     address = models.TextField(blank=False, null=False)
     contact_email = models.EmailField(blank=False, null=False)
-    phone_number = models.CharField(max_length=20, blank=False, null=False)
+    nid_passport = models.CharField(blank=False, null=False)
+    # changed to phone_personal from phone_number
+    phone_personal = models.CharField(max_length=20, blank=False, null=False)
 
     # Company Information
     company_name = models.CharField(max_length=255, blank=False, null=False)
+    phone_company = models.CharField(max_length=20, blank=False, null=False)
     position_in_company = models.CharField(
         max_length=100, blank=False, null=False)
     industry_and_sector = models.CharField(
