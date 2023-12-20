@@ -6,7 +6,6 @@ from rest_framework.permissions import IsAuthenticated
 from .models import CustomUser, OtpVerification, RegistrationProfile, JobProfile
 from .serializers import OtpVerificationSerializer, AuthSerializer, CustomUserModelSerializer, RegistrationProfileSerializer, JobProfileSerializer
 from .utility import send_email, get_token_from_request, country_code
-import pycountry
 
 
 class OtpVerificationView(APIView):
