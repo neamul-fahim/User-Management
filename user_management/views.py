@@ -5,7 +5,8 @@ from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from .models import CustomUser, OtpVerification, RegistrationProfile, JobProfile
 from .serializers import OtpVerificationSerializer, AuthSerializer, CustomUserModelSerializer, RegistrationProfileSerializer, JobProfileSerializer
-from .utility import send_email, get_token_from_request
+from .utility import send_email, get_token_from_request, country_code
+import pycountry
 
 
 class OtpVerificationView(APIView):
@@ -211,3 +212,22 @@ class ProfilePicUploadView(APIView):
             return Response({"response": "Image uploaded"}, status=status.HTTP_200_OK)
         except:
             return Response({"reaponse": "Please complete registration"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CountryCodeView(APIView):
+    def get(self, request):
+        country_name = []
+        name_code = {}
+        print("-------------")
+
+        countries = country_code()
+        print("-----------------------------------")
+        for country in countries:
+            name = country[0]
+            code = country[1]
+            country_name.append(name)
+            name_code[name] = code
+            print(
+                f"-----------country ----------{name} ------- {name_code[name]}")
+
+        return Response({"country_name": country_name, "name_code": name_code}, status=status.HTTP_200_OK)

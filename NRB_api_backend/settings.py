@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+    # 'country_dialcode',
+    # 'country_dialcode',
 ]
 
 MIDDLEWARE = [

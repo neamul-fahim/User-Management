@@ -17,4 +17,6 @@ urlpatterns = [
          name='jobs'),
     path('profilepic_upload/', views.ProfilePicUploadView.as_view(),
          name='profilepic_upload'),
+    path('country_code/', views.CountryCodeView.as_view(),
+         name='country_code'),
 ]
