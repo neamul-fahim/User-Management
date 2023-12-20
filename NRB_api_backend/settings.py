@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    # 'country_dialcode',
-    # 'country_dialcode',
 ]
 
 MIDDLEWARE = [
@@ -140,11 +138,12 @@ AUTH_USER_MODEL = 'user_management.CustomUser'
 # custom EEEEEEEEEEEEEEE
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'neamul.fahimb@gmail.com'
-EMAIL_HOST_PASSWORD = 'bwhdfyyuyrrfdrxp'
+EMAIL_HOST = 'mail.ipsitasoft.com'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'noreply@ipsitasoft.com'
+EMAIL_HOST_PASSWORD = 'noP@#2023'
 
 
 MEDIA_URL = '/media/'
