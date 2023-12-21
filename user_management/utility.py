@@ -244,3 +244,38 @@ def country_code():
         ("Zambia", "+260"),
         ("Zimbabwe", "+263")
     ]
+
+
+def designations():
+    return [
+        "Assistant Programmer",
+        "Business Analyst",
+        "Chief Executive Officer",
+        "Chairman",
+        "Chief Financial Officer",
+        "Chief Operating Officer",
+        "Chief Technology Officer",
+        "Doctor of Dental Medicine",
+        "Executive",
+        "Human Resources Manager",
+        "Junior Software Engineer",
+        "Junior Executive",
+        "Junior Officer",
+        "Marketing Specialist",
+        "Managing Director",
+        "Officer",
+        "Personal Assistant",
+        "President",
+        "Programmer",
+        "Project Coordinator",
+        "Project Manager",
+        "Sales Representative",
+        "Senior Executive",
+        "Senior Officer",
+        "Software Analyst",
+        "Software Engineer",
+        "Senior Software Engineer",
+        "Vice Chairman",
+        "Vice President of Marketing",
+        "Vice President of Sales"
+    ]

@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'NRB_api_backend.wsgi.application'
 # }
 
 # DATABASES = {
-       #This is Server Database with REMOTE HOST (Not as fast as LOCALLY HOSTED SERVER ONE)
+# This is Server Database with REMOTE HOST (Not as fast as LOCALLY HOSTED SERVER ONE)
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': 'tanvirah_NRB',
@@ -106,7 +106,7 @@ WSGI_APPLICATION = 'NRB_api_backend.wsgi.application'
 # }
 
 DATABASES = {
-    #This is the Server Database With Locally Hosted and the FASTEST ONE.
+    # This is the Server Database With Locally Hosted and the FASTEST ONE.
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tanvirah_NRB',
@@ -116,7 +116,6 @@ DATABASES = {
         'PORT': '3306',  # MySQL default port
     }
 }
-
 
 
 # DATABASES = {
