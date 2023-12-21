@@ -81,17 +81,43 @@ WSGI_APPLICATION = 'NRB_api_backend.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
+# DATABASES = {
+#   'default': {
+#     'ENGINE': 'django.db.backends.postgresql',
+#     'NAME': 'nrb',
+#     'USER': 'Jayed',
+#     'PASSWORD': 'PuoDXghkd9F6',
+#     'HOST': 'ep-red-lab-91575302.ap-southeast-1.aws.neon.tech',
+#     'PORT': '5432',
+#     'OPTIONS': {'sslmode': 'require'},
+#   }
+# }
+
+# DATABASES = {
+       #This is Server Database with REMOTE HOST (Not as fast as LOCALLY HOSTED SERVER ONE)
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'tanvirah_NRB',
+#         'USER': 'tanvirah_tanvir',
+#         'PASSWORD': 'tanvir@12345',
+#         'HOST': '65.109.69.35',  # Remote MySQL host (IP or domain)
+#         'PORT': '3306',  # MySQL default port
+#     }
+# }
+
 DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'nrb',
-    'USER': 'Jayed',
-    'PASSWORD': 'PuoDXghkd9F6',
-    'HOST': 'ep-red-lab-91575302.ap-southeast-1.aws.neon.tech',
-    'PORT': '5432',
-    'OPTIONS': {'sslmode': 'require'},
-  }
+    #This is the Server Database With Locally Hosted and the FASTEST ONE.
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tanvirah_NRB',
+        'USER': 'tanvirah_tanvir',
+        'PASSWORD': 'tanvir@12345',
+        'HOST': 'localhost',  # Remote MySQL host (IP or domain)
+        'PORT': '3306',  # MySQL default port
+    }
 }
+
+
 
 # DATABASES = {
 #     'default': {

@@ -103,7 +103,7 @@ class RegistrationProfile(models.Model):
     country = models.CharField(max_length=100, blank=False, null=False)
     address = models.TextField(blank=False, null=False)
     contact_email = models.EmailField(blank=False, null=False)
-    nid_passport = models.CharField(blank=False, null=False)
+    nid_passport = models.CharField(max_length=20,blank=False, null=False)
     # changed to phone_personal from phone_number
     phone_personal = models.CharField(max_length=20, blank=False, null=False)
 
