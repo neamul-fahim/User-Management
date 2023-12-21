@@ -116,17 +116,17 @@ DATABASES = { #This is Server Database with REMOTE HOST (Not as fast as LOCALLY 
 #     }
 # }
 
-DATABASES = {
-    #This is the Server Database With Locally Hosted and the FASTEST ONE.
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tanvirah_NRB',
-        'USER': 'tanvirah_tanvir',
-        'PASSWORD': 'tanvir@12345',
-        'HOST': 'localhost',  # Remote MySQL host (IP or domain)
-        'PORT': '3306',  # MySQL default port
-    }
-}
+# DATABASES = {
+#     #This is the Server Database With Locally Hosted and the FASTEST ONE.
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'tanvirah_NRB',
+#         'USER': 'tanvirah_tanvir',
+#         'PASSWORD': 'tanvir@12345',
+#         'HOST': 'localhost',  # Remote MySQL host (IP or domain)
+#         'PORT': '3306',  # MySQL default port
+#     }
+# }
 
 
 
