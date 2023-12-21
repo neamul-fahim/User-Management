@@ -123,7 +123,7 @@ class RegistrationProfile(models.Model):
     industry_and_sector = models.CharField(
         max_length=100, blank=False, null=False)
     company_size = models.CharField(max_length=50, blank=False, null=False)
-    company_website_url = models.URLField(blank=False, null=False)
+    company_website_url = models.CharField(blank=False, null=False ,max_length=50)
     social_media_profiles = models.TextField(blank=False, null=False)
 
     def __str__(self):
