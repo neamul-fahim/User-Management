@@ -5,7 +5,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from .models import CustomUser, OtpVerification, RegistrationProfile, JobProfile
 from .serializers import OtpVerificationSerializer, AuthSerializer, CustomUserModelSerializer, RegistrationProfileSerializer, JobProfileSerializer
-from .utility import send_email, get_token_from_request, country_code
+from .utility import send_email, get_token_from_request, country_code, designations
 
 
 class OtpVerificationView(APIView):
@@ -230,3 +230,9 @@ class CountryCodeView(APIView):
                 f"-----------country ----------{name} ------- {name_code[name]}")
 
         return Response({"country_name": country_name, "name_code": name_code}, status=status.HTTP_200_OK)
+
+
+class Designations(APIView):
+    def get(self, request):
+        des = designations()
+        return Response({"designations": des}, status=status.HTTP_200_OK)
